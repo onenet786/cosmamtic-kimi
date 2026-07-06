@@ -67,7 +67,7 @@ DATABASE_URL="postgresql://cosmamtic_user:YOUR_STRONG_PASSWORD@YOUR_SERVER_IP:54
 Open PowerShell in the `D:\GIT-HUB\cosmamtic-kimi\web` folder and run:
 
 ```powershell
-npx prisma migrate dev --name init
+npx prisma db push
 npx prisma db seed
 ```
 
@@ -181,9 +181,9 @@ You have two options:
 ### 3. Build and run the production app
 
 ```bash
-# Generate Prisma client and run migrations
+# Generate Prisma client and push schema to database
 npx prisma generate
-npx prisma migrate deploy
+npx prisma db push
 npx prisma db seed
 
 # Build the app for production
@@ -215,7 +215,7 @@ cd /www/wwwroot/coskimi.binishaqsoft.com/web
 git pull origin main
 npm install --legacy-peer-deps
 npx prisma generate
-npx prisma migrate deploy
+npx prisma db push
 npm run build
 
 # Restart the Node.js process in aaPanel or PM2
