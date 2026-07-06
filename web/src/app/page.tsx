@@ -9,7 +9,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Package, ShoppingCart, BarChart3, Wallet } from "lucide-react";
-import Link from "next/link";
 
 export default function LoginPage() {
   return (
