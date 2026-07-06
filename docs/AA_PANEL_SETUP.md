@@ -134,10 +134,10 @@ SSH into your server and run:
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-# Clone your repository
+# Clone your repository into your domain folder
 cd /www/wwwroot
-git clone https://github.com/onenet786/cosmamtic-kimi.git
-cd cosmamtic-kimi/web
+git clone https://github.com/onenet786/cosmamtic-kimi.git coskimi.binishaqsoft.com
+cd coskimi.binishaqsoft.com/web
 
 # Install dependencies
 npm install --legacy-peer-deps
@@ -181,7 +181,7 @@ git push origin main
 On your dedicated server, pull and restart:
 
 ```bash
-cd /www/wwwroot/cosmamtic-kimi/web
+cd /www/wwwroot/coskimi.binishaqsoft.com/web
 
 git pull origin main
 npm install --legacy-peer-deps
