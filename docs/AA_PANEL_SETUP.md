@@ -222,3 +222,58 @@ npm run build
 ```
 
 Using Git makes every future update a simple `git pull`, `npm install`, `npm run build`, and restart.
+
+---
+
+## 8. Map Your Domain (Nginx Reverse Proxy in aaPanel)
+
+To access your Next.js application at `http://coskimi.binishaqsoft.com` (instead of `http://localhost:2025`), you must configure aaPanel to reverse-proxy traffic from port 80/443 (HTTP/HTTPS) to port 2025.
+
+### Step 1: Create a Website in aaPanel
+1. In the aaPanel left sidebar, click **Website**.
+2. Click **Add site**.
+3. Under **Domain name**, enter `coskimi.binishaqsoft.com`.
+4. Under **Database**, choose **Do not create** (since we created the PostgreSQL database separately in Step 2).
+5. For **Site category** and **PHP version**, choose **Static** (since Next.js runs on its own Node.js server, we don't need PHP).
+6. Click **Submit**.
+
+### Step 2: Configure Reverse Proxy
+1. In the **Website** list, find `coskimi.binishaqsoft.com` and click its **Settings** link.
+2. In the settings popup, click **Reverse Proxy** on the left menu.
+3. Click **Add reverse proxy**.
+4. Set the following values:
+   - **Proxy name:** `nextjs-app`
+   - **Target URL:** `http://127.0.0.1:2025`
+   - **Sent Domain:** `$host`
+5. Click **Submit**.
+6. Switch the proxy state toggle to **ON** (Enabled).
+
+Now Nginx is redirecting all web traffic on your domain `coskimi.binishaqsoft.com` to your running Next.js app on port `2025`!
+
+### Step 3: Keep the Next.js App Running (using PM2)
+Since `npm start` will stop running if you close your SSH terminal, you should run it in the background using PM2:
+
+1. SSH into the server.
+2. Install PM2 globally:
+   ```bash
+   sudo npm install -g pm2
+   ```
+3. Go to your app directory:
+   ```bash
+   cd /www/wwwroot/coskimi.binishaqsoft.com/web
+   ```
+4. Start Next.js using PM2:
+   ```bash
+   pm2 start npm --name "cosmamtic-app" -- start
+   ```
+5. Ensure it automatically restarts when the server reboots:
+   ```bash
+   pm2 save
+   pm2 startup
+   ```
+
+### Step 4: Add SSL (HTTPS) - Optional but Recommended
+1. In the **Website** settings for `coskimi.binishaqsoft.com`, click **SSL** on the left menu.
+2. Select **Let's Encrypt**.
+3. Select your domain, agree to the terms, and click **Apply**.
+4. Enable **Force HTTPS** toggle at the top right of the SSL screen.
