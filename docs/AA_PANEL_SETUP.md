@@ -214,6 +214,7 @@ cd /www/wwwroot/coskimi.binishaqsoft.com/web
 
 git pull origin main
 npm install --legacy-peer-deps
+npx prisma generate
 npx prisma migrate deploy
 npm run build
 
