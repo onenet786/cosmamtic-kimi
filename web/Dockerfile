@@ -19,8 +19,8 @@ COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 
-EXPOSE 2025
-ENV PORT 2025
+EXPOSE 3025
+ENV PORT 3025
 ENV HOSTNAME "0.0.0.0"
 
 CMD ["node", "server.js"]

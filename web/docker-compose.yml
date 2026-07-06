@@ -26,9 +26,9 @@ services:
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/cosmamtic?schema=public
       NEXTAUTH_SECRET: your-secret-key-change-in-production
-      NEXTAUTH_URL: http://localhost:2025
+      NEXTAUTH_URL: http://localhost:3025
     ports:
-      - "2025:2025"
+      - "3025:3025"
     depends_on:
       db:
         condition: service_healthy

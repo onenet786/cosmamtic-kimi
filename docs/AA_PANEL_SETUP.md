@@ -99,7 +99,7 @@ Once the database is connected and seeded, you can start the Next.js dev server:
 npm run dev
 ```
 
-Then open `http://localhost:2025` to use the application.
+Then open `http://localhost:3025` to use the application.
 
 ## Deploying the App to Your Dedicated Server (Optional)
 
@@ -193,7 +193,7 @@ npm run build
 npm start
 ```
 
-By default, this runs on `http://localhost:2025`. You can use aaPanel's **Node.js Project Manager** or **PM2** to keep it running and expose it through a reverse proxy (Nginx) on aaPanel.
+By default, this runs on `http://localhost:3025`. You can use aaPanel's **Node.js Project Manager** or **PM2** to keep it running and expose it through a reverse proxy (Nginx) on aaPanel.
 
 ### 4. Update the app in the future
 
@@ -227,7 +227,7 @@ Using Git makes every future update a simple `git pull`, `npm install`, `npm run
 
 ## 8. Map Your Domain (Nginx Reverse Proxy in aaPanel)
 
-To access your Next.js application at `http://coskimi.binishaqsoft.com` (instead of `http://localhost:2025`), you must configure aaPanel to reverse-proxy traffic from port 80/443 (HTTP/HTTPS) to port 2025.
+To access your Next.js application at `http://coskimi.binishaqsoft.com` (instead of `http://localhost:3025`), you must configure aaPanel to reverse-proxy traffic from port 80/443 (HTTP/HTTPS) to port 3025.
 
 ### Step 1: Create a Website in aaPanel
 1. In the aaPanel left sidebar, click **Website**.
@@ -243,12 +243,12 @@ To access your Next.js application at `http://coskimi.binishaqsoft.com` (instead
 3. Click **Add reverse proxy**.
 4. Set the following values:
    - **Proxy name:** `nextjs-app`
-   - **Target URL:** `http://127.0.0.1:2025`
+   - **Target URL:** `http://127.0.0.1:3025`
    - **Sent Domain:** `$host`
 5. Click **Submit**.
 6. Switch the proxy state toggle to **ON** (Enabled).
 
-Now Nginx is redirecting all web traffic on your domain `coskimi.binishaqsoft.com` to your running Next.js app on port `2025`!
+Now Nginx is redirecting all web traffic on your domain `coskimi.binishaqsoft.com` to your running Next.js app on port `3025`!
 
 ### Step 3: Keep the Next.js App Running (using PM2)
 Since `npm start` will stop running if you close your SSH terminal, you should run it in the background using PM2:
