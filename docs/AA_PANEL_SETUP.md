@@ -135,6 +135,9 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Clone your repository into your domain folder
+# GitHub no longer accepts your account password here. Use a Personal Access Token (PAT) instead.
+# If your repo is private, create a PAT at https://github.com/settings/tokens with "repo" scope.
+# If you want public clone without a token, set the repo to Public on GitHub first.
 cd /www/wwwroot
 git clone https://github.com/onenet786/cosmamtic-kimi.git coskimi.binishaqsoft.com
 cd coskimi.binishaqsoft.com/web
@@ -148,6 +151,32 @@ nano .env
 ```
 
 Set the `DATABASE_URL` to your aaPanel PostgreSQL server details from the step above.
+
+### GitHub Authentication Note
+
+If `git clone` asks for a username/password, GitHub is rejecting your account password because password authentication is disabled for Git operations.
+
+You have two options:
+
+**Option A: Make the repo public (simplest for a single server)**
+1. Go to `https://github.com/onenet786/cosmamtic-kimi/settings`.
+2. Scroll down to **Danger Zone** > **Change repository visibility**.
+3. Set it to **Public**.
+4. Now `git clone` and `git pull` work without any password.
+
+**Option B: Use a Personal Access Token (PAT)**
+1. Create a token at `https://github.com/settings/tokens` with **repo** scope.
+2. Use the token as the password when prompted, or embed it in the URL:
+   ```bash
+   git clone https://YOUR_TOKEN@github.com/onenet786/cosmamtic-kimi.git coskimi.binishaqsoft.com
+   ```
+3. To avoid entering the token every time, store it with Git's credential helper:
+   ```bash
+   git config --global credential.helper store
+   # Run one git operation that asks for credentials, then it is cached
+   cd coskimi.binishaqsoft.com
+   git pull
+   ```
 
 ### 3. Build and run the production app
 
