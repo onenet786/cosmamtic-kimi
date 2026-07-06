@@ -65,9 +65,12 @@ export default function LoginPage() {
               <Label htmlFor="password">Password</Label>
               <Input id="password" type="password" placeholder="••••••••" />
             </div>
-            <Button className="w-full" size="lg" asChild>
-              <a href="/dashboard">Sign in</a>
-            </Button>
+            <a
+              href="/dashboard"
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full"
+            >
+              Sign in
+            </a>
             <p className="text-xs text-center text-muted-foreground">
               Default: owner@cosmamtic.com / password (see seed file)
             </p>
