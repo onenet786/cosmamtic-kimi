@@ -99,7 +99,7 @@ Once the database is connected and seeded, you can start the Next.js dev server:
 npm run dev
 ```
 
-Then open `http://localhost:3000` to use the application.
+Then open `http://localhost:2025` to use the application.
 
 ## Deploying the App to Your Dedicated Server (Optional)
 
@@ -193,7 +193,7 @@ npm run build
 npm start
 ```
 
-By default, this runs on `http://localhost:3000`. You can use aaPanel's **Node.js Project Manager** or **PM2** to keep it running and expose it through a reverse proxy (Nginx) on aaPanel.
+By default, this runs on `http://localhost:2025`. You can use aaPanel's **Node.js Project Manager** or **PM2** to keep it running and expose it through a reverse proxy (Nginx) on aaPanel.
 
 ### 4. Update the app in the future
 

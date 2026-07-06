@@ -130,7 +130,7 @@ cosmamtic-kimi/
    npm run dev
    ```
 
-7. Open [http://localhost:3000](http://localhost:3000) in your browser.
+7. Open [http://localhost:2025](http://localhost:2025) in your browser.
 
 ### Default Login
 
