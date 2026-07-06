@@ -117,7 +117,7 @@ git add .
 git commit -m "Initial ERP/POS foundation"
 
 # Add your remote (GitHub, GitLab, Bitbucket, or your own Git server)
-git remote add origin https://github.com/YOUR_USERNAME/cosmamtic-kimi.git
+git remote add origin https://github.com/onenet786/cosmamtic-kimi.git
 
 git branch -M main
 git push -u origin main
@@ -136,7 +136,7 @@ sudo apt-get install -y nodejs
 
 # Clone your repository
 cd /www/wwwroot
-git clone https://github.com/YOUR_USERNAME/cosmamtic-kimi.git
+git clone https://github.com/onenet786/cosmamtic-kimi.git
 cd cosmamtic-kimi/web
 
 # Install dependencies
