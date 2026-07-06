@@ -67,7 +67,7 @@ export default function LoginPage() {
               <Input id="password" type="password" placeholder="••••••••" />
             </div>
             <Button className="w-full" size="lg" asChild>
-              <Link href="/dashboard">Sign in</Link>
+              <a href="/dashboard">Sign in</a>
             </Button>
             <p className="text-xs text-center text-muted-foreground">
               Default: owner@cosmamtic.com / password (see seed file)
